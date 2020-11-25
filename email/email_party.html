@@ -1,9 +1,723 @@
-<!DOCTYPE html>
+<style>
+    /******************* DEBUT DU RESET ************************/
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: sans-serif;
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        -ms-overflow-style: scrollbar;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    @-ms-viewport {
+        width: device-width;
+    }
+
+    article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+        display: block;
+    }
+
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Calibri, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+        background-color: #fff;
+    }
+
+    [tabindex="-1"]:focus {
+        outline: none !important;
+    }
+
+    hr {
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    abbr[title],
+    abbr[data-original-title] {
+        text-decoration: underline;
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted;
+        cursor: help;
+        border-bottom: 0;
+    }
+
+    address {
+        margin-bottom: 1rem;
+        font-style: normal;
+        line-height: inherit;
+    }
+
+    ol,
+    ul,
+    dl {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    ol ol,
+    ul ul,
+    ol ul,
+    ul ol {
+        margin-bottom: 0;
+    }
+
+    dt {
+        font-weight: 700;
+    }
+
+    dd {
+        margin-bottom: .5rem;
+        margin-left: 0;
+    }
+
+    blockquote {
+        margin: 0 0 1rem;
+    }
+
+    dfn {
+        font-style: italic;
+    }
+
+    b,
+    strong {
+        font-weight: bold;
+    }
+
+    small {
+        font-size: 80%;
+    }
+
+    sub,
+    sup {
+        position: relative;
+        font-size: 75%;
+        line-height: 0;
+        vertical-align: baseline;
+    }
+
+    sub {
+        bottom: -.25em;
+    }
+
+    sup {
+        top: -.5em;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+
+    a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+
+    a:not([href]):not([tabindex]) {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    a:not([href]):not([tabindex]):focus {
+        outline: 0;
+    }
+
+    pre,
+    code,
+    kbd,
+    samp {
+        font-family: monospace, monospace;
+        font-size: 1em;
+    }
+
+    pre {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        overflow: auto;
+        -ms-overflow-style: scrollbar;
+    }
+
+    figure {
+        margin: 0 0 1rem;
+    }
+
+    img {
+        width: 100%;
+        vertical-align: middle;
+        border-style: none;
+    }
+
+    svg:not(:root) {
+        overflow: hidden;
+    }
+
+    a,
+    area,
+    button,
+    [role="button"],
+    input:not([type="range"]),
+    label,
+    select,
+    summary,
+    textarea {
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    caption {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        color: #868e96;
+        text-align: left;
+        caption-side: bottom;
+    }
+
+    th {
+        text-align: inherit;
+    }
+
+    label {
+        display: inline-block;
+        margin-bottom: .5rem;
+    }
+
+    button {
+        border-radius: 0;
+    }
+
+    button:focus {
+        outline: 1px dotted;
+        outline: 5px auto -webkit-focus-ring-color;
+    }
+
+    input,
+    button,
+    select,
+    optgroup,
+    textarea {
+        margin: 0;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    button,
+    input {
+        overflow: visible;
+    }
+
+    button,
+    select {
+        text-transform: none;
+    }
+
+    button,
+    html [type="button"],
+    [type="reset"],
+    [type="submit"] {
+        -webkit-appearance: button;
+    }
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+        padding: 0;
+        border-style: none;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="month"] {
+        -webkit-appearance: listbox;
+    }
+
+    textarea {
+        overflow: auto;
+        resize: vertical;
+    }
+
+    fieldset {
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+
+    legend {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin-bottom: .5rem;
+        font-size: 1.5rem;
+        line-height: inherit;
+        color: inherit;
+        white-space: normal;
+    }
+
+    progress {
+        vertical-align: baseline;
+    }
+
+    [type="number"]::-webkit-inner-spin-button,
+    [type="number"]::-webkit-outer-spin-button {
+        height: auto;
+    }
+
+    [type="search"] {
+        outline-offset: -2px;
+        -webkit-appearance: none;
+    }
+
+    [type="search"]::-webkit-search-cancel-button,
+    [type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+    }
+
+    ::-webkit-file-upload-button {
+        font: inherit;
+        -webkit-appearance: button;
+    }
+
+    output {
+        display: inline-block;
+    }
+
+    summary {
+        display: list-item;
+    }
+
+    template {
+        display: none;
+    }
+
+    [hidden] {
+        display: none !important;
+
+        /******************* FIN DU RESET ************************/
+    }
+
+    /******************* Modification de la couleur de la police et de la taille du body ************************/
+    body{
+        height: 100vh;
+        width: 100vw;
+        color: #354052;
+    }
+
+</style>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//FR"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="fr">
-<body>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Email</title>
+    <style>
+        /******************* Permet de cacher les infos dans le footer ************************/
+        .desktop {
+            display: none;
+        }
 
-<strong>Let's party</strong>
+        .mobile {
+            display: block;
+        }
 
+        /*class qui align le text pour toute les ta les*/
+        table {
+            text-align: center;
+        }
+
+        @media (min-width: 769px) {
+            /*media query pour la version pc + on affiche l'info du footer */
+            .desktop {
+                display: block;
+                text-align: center;
+            }
+
+            .mobile {
+                display: none;
+            }
+
+            /*definis une taille au container du mail*/
+            .container {
+                width: 796px;
+                margin: 0 auto;
+            }
+
+            /*on positionne les infos de l'adresse sur la gauche afin d'aligner les autres*/
+            .pos {
+                width: 32%;
+                float: left;
+            }
+            /*on positionne les infos pour la musique au centre */
+            .music {
+                width: 32%;
+                float: left;
+            }
+            /*on positionne les infos du tarif sur la droite */
+            .money {
+                width: 32%;
+                padding-top: 0;
+                margin-top: 0;
+                float: right;
+            }
+
+            /*on positionne les infos de la miss egde sur la gauche */
+            .edge {
+                width: 50%;
+                float: left;
+            }
+            /*on positionne les infos de la miss firefox sur la droite pour l'aligner a edge*/
+            .firefox {
+                width: 50%;
+                float: right;
+            }
+
+            /*on positionne les infos de la miss opera sur la gauche en dessous de edge et firefox */
+            .opera {
+                width: 50%;
+                float: left;
+            }
+            /*on positionne les infos de la miss safari sur la droite pour l'aligner a opera*/
+            .safari {
+                width: 50%;
+                float: right;
+            }
+
+        }
+
+    </style>
+</head>
+<body class="container" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<!-- Affichage du Header -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>
+            <div style="background-color:#cccccc; background: url('http://lucas-bracq.alwaysdata.net/img/Image1.png'); background-repeat: no-repeat; background-position: center; background-size: cover">
+                <!--[if gte mso 9]>
+                <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+                    <v:fill type="tile" src="http://lucas-bracq.alwaysdata.net/img/Image1.png"
+                            color="#cccccc"/>
+                </v:background>
+                <![endif]-->
+                <table height="100%" width="90%" cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                    <tr>
+                        <td height="120" style="font-size: 5rem; line-height: 4rem;"> &nbsp;</td>
+                    </tr>
+                    <tr style="text-align: right">
+                        <td style="font-family: 'Calibri'; font-size: 3rem; font-weight: bold; color: #fff">
+                            PARTY DE NOEL
+                        </td>
+                    </tr>
+                    <tr style="text-align: right">
+                        <td style="font-family: 'Calibri Light'; font-size: 3rem; color: #fff">Jeudi 19 déc. à GAP</td>
+                    </tr>
+                    <tr>
+                        <td height="15" style="font-size: 1rem; line-height: 1rem;"> &nbsp;</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Affichage du titre -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody style="text-align: center; color: #354052;">
+    <tr>
+        <td height="15" style="font-size: 1rem; line-height: 1rem;"> &nbsp;</td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.5rem; font-weight: bold;"> !! PLACES LIMITÉES FAITES VITE !!</td>
+    </tr>
+    <tr>
+        <td height="15" style="font-size: 1rem; line-height: 1rem;"> &nbsp;</td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 2rem; font-weight: bold;">A La + Grosse Soirée Etudiante
+        </td>
+    </tr>
+    <tr>
+        <td height="40" style="font-size: 2.5rem; line-height: 2rem;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Affichage de l'adresse -->
+<table class="pos" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>
+            <img alt="logo de localisation"
+                 src="http://lucas-bracq.alwaysdata.net/img/maps-and-flags.png"
+                 width="28px" height="40px">
+        </td>
+    </tr>
+
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.2rem;">1er étage</td>
+    </tr>
+
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem;">Batiment MIW</td>
+    </tr>
+
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem;">15/12/2020 à 20h</td>
+    </tr>
+    <tr>
+        <td height="30" style="font-size: 2rem; line-height: 2rem;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Affichage des musiques -->
+<table class="music" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>
+            <img alt="logo du bouton demarrer"
+                 src="http://lucas-bracq.alwaysdata.net/img/play-button.png"
+                 width="40px" height="40px">
+        </td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem;">RnB, Hip Hop,</td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem;">Latino, House,</td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem;">Electro</td>
+    </tr>
+    <tr>
+        <td height="30" style="font-size: 1.6rem; line-height: 1.6rem;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+<!-- Affichage des tarifs -->
+<table class="money" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>
+            <img alt="logo du symbole euro"
+                 src="http://lucas-bracq.alwaysdata.net/img/euro-currency-symbol.png"
+                 width="29px" height="40px">
+        </td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1rem;">15€ + 1 conso</td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1rem;">(sur présentation de cet email)</td>
+    </tr>
+    <tr>
+        <td height="40" style="font-size: 2.4rem; line-height: 2.4rem;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Affichage du sous-titre -->
+<table class="subtitle" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.5rem; font-weight: bold;">La meilleure soirée étudiante de noël à Gap, avec en guess star 4 navigatrices !</td>
+    </tr>
+    <tr>
+        <td height="40" style="font-size: 2.4rem; line-height: 2.4rem;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Affichage Miss Edge -->
+<table class="edge" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>
+            <img src="http://lucas-bracq.alwaysdata.net/img/ie1x.png"
+                 alt="image de la miss edge">
+        </td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem; font-weight: bold;">Miss Edge</td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem;">A besoin de beaucoup d'attention !</td>
+    </tr>
+    <tr>
+        <td height="15" style="font-size: 1rem; line-height: 1rem;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+<!-- Affichage Miss Firefox -->
+<table class="firefox" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>
+            <img src="http://lucas-bracq.alwaysdata.net/img/firefox1x.png"
+                 alt="image de la miss firefox">
+        </td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem; font-weight: bold;">Miss Firefox</td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem;">Libre et sauvage, tel un renard !</td>
+    </tr>
+    <tr>
+        <td height="15" style="font-size: 1rem; line-height: 1rem;"> &nbsp;</td>
+    </tr>
+    <tr>
+    </tbody>
+</table>
+<!-- Affichage Miss opera -->
+<table class="opera" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>
+            <img src="http://lucas-bracq.alwaysdata.net/img/opera1x.png"
+                 alt="image de la miss opera">
+        </td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem; font-weight: bold;">Miss Opera</td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem;">La norvégienne discrète et astucieuse</td>
+    </tr>
+    <tr>
+        <td height="15" style="font-size: 1rem; line-height: 1rem;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+<!-- Affichage Miss Safari -->
+<table class="safari" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>
+            <img src="http://lucas-bracq.alwaysdata.net/img/safari1x.png"
+                 alt="image de la miss safari">
+        </td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem; font-weight: bold;">Miss Safari</td>
+    </tr>
+    <tr>
+        <td style="font-family: 'Calibri'; font-size: 1.4rem;">Ne perd pas le nord !</td>
+    </tr>
+    <tr>
+        <td height="40" style="font-size: 2.5rem; line-height: 2.5rem;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Affichage du bouton pour l'inscription -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>
+            <a style="color: #fff; background-color: #C30078; padding: 1rem; border-radius: 0.8rem;text-decoration: none; font-weight: bold;  font-family: Calibri"
+               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO">Se désinscrire</a></td>
+    </tr>
+    <tr>
+        <td height="40" style="font-size: 2.5rem; line-height: 2.5rem;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Affichage du footer -->
+<table border="0" cellpadding="0" cellspacing="0" style="background-color: #F5F5F5; width: 100%;">
+    <tbody style="text-align: center; color: #354052; font-family: Calibri">
+    <tr>
+        <td height="30" style="font-size: 2rem; line-height: 2rem;"> &nbsp;</td>
+    </tr>
+    <tr>
+        <td style="width: 35px; text-align: right">
+            <img src="http://lucas-bracq.alwaysdata.net/img/facebook.png" alt="logo de facebook"
+                 width="35px" height="35px">
+        </td>
+        <td style="width: 35px">
+            <img src="http://lucas-bracq.alwaysdata.net/img/twitter.png" alt="logo de twitter"
+                 width="35px" height="35px">
+        </td>
+        <td style="width: 35px; text-align: left">
+            <img src="http://lucas-bracq.alwaysdata.net/img/instagram.svg" alt="logo d'instagram"
+                 width="35px" height="35px">
+        </td>
+    </tr>
+    <tr>
+        <td height="30" style="font-size: 30px; line-height: 30px;"> &nbsp;</td>
+    </tr>
+    <tr>
+        <td style="font-weight: lighter; text-align: right">Copyright &copy 2021</td>
+        <td style="font-weight: bold; ">MIW'x.</td>
+        <td style="font-weight: lighter; text-align: left">All Rights Reserved.</td>
+    </tr>
+    <tr class="mobile">
+        <td height="30" style="font-size: 30px; line-height: 30px;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Affichage du tableau pour les infos de contact -->
+<table class="desktop" border="0" cellpadding="0" cellspacing="0" style="background-color: #F5F5F5; width: 100%;">
+    <tbody style="text-align: center; color: #354052; font-family: Calibri; display: block">
+    <tr style="display: block">
+        <td style="width: 10%"> &nbsp; </td>
+        <td style="width: 10%">miw@miw.com | 66 66 66 66 66</td>
+        <td style="width: 10%"> &nbsp; </td>
+    </tr>
+    <tr>
+        <td height="30" style="font-size: 2rem; line-height: 2rem;"> &nbsp;</td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>
