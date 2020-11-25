@@ -24,11 +24,11 @@ try {
     $mail->Port       = 465;                                    // TCP port to connect to
 
     //Recipients
-    $mail->setFrom('chiquinha260@gmail.com', 'MIW Party');
+    $mail->setFrom('XXXXXXXXXXXX', 'MIW Party');
     var_dump($_POST['email']);
     $mail->addAddress($_POST['email'], 'Les meilleurs étudiants');     // Add a recipient
 
-    // Attachments
+// Attachments
 //    $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //    $mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
 
