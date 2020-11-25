@@ -6,3 +6,4 @@ send_email.php
 *.xml
 .idea/workspace.xml
 send_email.php
+*.xml
