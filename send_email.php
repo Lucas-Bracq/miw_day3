@@ -18,8 +18,8 @@ try {
     $mail->CharSet = 'UTF-8';
     $mail->Host = 'smtp.gmail.com';                    // Set the SMTP server to send through
     $mail->SMTPAuth = true;                                   // Enable SMTP authentication
-    $mail->Username = 'chiquinha260@gmail.com';                     // SMTP username
-    $mail->Password = 'Gribouil91998';                               // SMTP password
+    $mail->Username = 'XXXXXXXX';                     // SMTP username
+    $mail->Password = 'XXXXXXX';                               // SMTP password
     $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
     $mail->Port       = 465;                                    // TCP port to connect to
 
