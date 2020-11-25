@@ -17,15 +17,15 @@ try {
     //$mail->isSMTP();                                          // Send using SMTP
     $mail->Host = 'smtp.gmail.com';                    // Set the SMTP server to send through
     $mail->SMTPAuth = true;                                   // Enable SMTP authentication
-    $mail->Username = 'chiquinha260@gmail.com';                     // SMTP username
-    $mail->Password = 'vanille91998';                               // SMTP password
+    $mail->Username = 'XXXXXXXXXXXXXXX';                     // SMTP username
+    $mail->Password = 'XXXXXXXXXXXXXXX';                               // SMTP password
     $mail->SMTPSecure = 'ssl';         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
     $mail->Port       = 465;                                    // TCP port to connect to
 
     //Recipients
-    $mail->setFrom('chiquinha260@gmail.com', 'MIW Party');
+    $mail->setFrom('XXXXXXXXXXXX', 'MIW Party');
     var_dump($_POST['email']);
-    $mail->addAddress($_POST['email'], 'Leon');     // Add a recipient
+    $mail->addAddress($_POST['email'], 'héhé');     // Add a recipient
 
     // Attachments
 //    $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
